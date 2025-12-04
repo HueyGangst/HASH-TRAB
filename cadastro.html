@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>📝 Cadastrar Novo Usuário</h2>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <p style="color: red;">{{ messages[0] }}</p>
+    {% endif %}
+    {% endwith %}
+
+    <form method="post">
+        <input type="text" name="login" placeholder="Crie um Login" required><br>
+        <input type="password" name="senha" placeholder="Crie uma Senha" required><br>
+        <button type="submit">Salvar (Gerar Hash)</button>
+    </form>
+    <br>
+    <a href="/login">Ir para Login</a>
+</body>
+
+</html>
